@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://qeujgnb7ljc3"]
+
+[ext_resource type="Script" uid="uid://kv1atnvu7y54" path="res://scenes/Layers/WorldLayer/LevelLayer/LevelLayer.cs" id="1_wgf4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgf4y"]
+size = Vector2(320, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouolg"]
+size = Vector2(2, 180)
+
+[node name="LevelLayer" type="Node2D" unique_id=1710065336]
+script = ExtResource("1_wgf4y")
+
+[node name="CollisionBox" type="StaticBody2D" parent="." unique_id=1340070082]
+
+[node name="CollisionBorderBottom" type="CollisionShape2D" parent="CollisionBox" unique_id=792030778]
+position = Vector2(160, 181)
+shape = SubResource("RectangleShape2D_wgf4y")
+
+[node name="CollisionBorderTop" type="CollisionShape2D" parent="CollisionBox" unique_id=595236410]
+position = Vector2(160, -1)
+shape = SubResource("RectangleShape2D_wgf4y")
+
+[node name="CollisionBorderLeft" type="CollisionShape2D" parent="CollisionBox" unique_id=65828027]
+position = Vector2(-1, 90)
+shape = SubResource("RectangleShape2D_ouolg")
+
+[node name="CollisionBorderRight" type="CollisionShape2D" parent="CollisionBox" unique_id=1633173727]
+position = Vector2(321, 90)
+shape = SubResource("RectangleShape2D_ouolg")

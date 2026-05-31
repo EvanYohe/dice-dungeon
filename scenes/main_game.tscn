@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dyy438letvn87"]
 
+[ext_resource type="PackedScene" uid="uid://c3v4shb35w2cr" path="res://scenes/Entities/PlayerEntity/player_entity.tscn" id="1_s3esy"]
+[ext_resource type="PackedScene" uid="uid://rgyddklh2a1k" path="res://scenes/Entities/EnemyEntity/EnemyEntity.tscn" id="2_72e8q"]
+[ext_resource type="Script" uid="uid://cgy4lpgsv7gm5" path="res://scenes/Entities/BadTestArea.cs" id="3_d2op2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72e8q"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d2op2"]
+
 [node name="MainGame" type="Node" unique_id=342268144]
-
-[node name="World" type="Node2D" parent="." unique_id=357991984]
-
-[node name="LevelLayer" type="Node2D" parent="World" unique_id=474561013]
-
-[node name="EntityLayer" type="Node2D" parent="World" unique_id=1560055611]
-
-[node name="Systems" type="Node" parent="." unique_id=567500696]
 
 [node name="HudLayerCanvas" type="CanvasLayer" parent="." unique_id=922321571]
 
@@ -25,3 +25,30 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="EventListener" type="Node" parent="." unique_id=2120786944]
+
+[node name="CombatManager" type="Node" parent="EventListener" unique_id=1365013218]
+
+[node name="World" type="Node2D" parent="." unique_id=1193965740]
+
+[node name="PlayerEntity" parent="World" unique_id=389815317 instance=ExtResource("1_s3esy")]
+position = Vector2(20, 90)
+speed = 10.0
+
+[node name="EnemyEntity" parent="World" unique_id=679935131 instance=ExtResource("2_72e8q")]
+position = Vector2(300, 90)
+
+[node name="Area2D" type="Area2D" parent="World" unique_id=572549486]
+position = Vector2(160, 90)
+scale = Vector2(2, 2)
+script = ExtResource("3_d2op2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Area2D" unique_id=1687112091]
+shape = SubResource("RectangleShape2D_72e8q")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Area2D" unique_id=1167353589]
+z_index = -1
+position = Vector2(-2.861023e-06, -4.7683716e-07)
+scale = Vector2(19.999994, 19.999998)
+texture = SubResource("PlaceholderTexture2D_d2op2")
