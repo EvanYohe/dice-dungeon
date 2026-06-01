@@ -1,6 +1,7 @@
 ﻿namespace DiceDungeon.scripts.Map;
 
 public enum NodeType {
+    
     Empty,
     Entrance,
     Exit,

@@ -18,6 +18,7 @@ namespace DiceDungeon.scripts.Event;
 // the entities that are subscribed to the Event type.
 
 public partial class EventBus : Node {
+    
     // Dictionary that stores Events and their corresponding subscribers where the subscribers
     // are represented by the functions that will be called when the Event is triggered.
     private static readonly Dictionary<Type, List<Delegate>> Subscribers = new Dictionary<Type, List<Delegate>>();
@@ -25,6 +26,7 @@ public partial class EventBus : Node {
     // Called by something that wants to know when an Event happens, where the callback is the
     // function that the subscriber will process on the Event being triggered (published).
     public static void Subscribe<T>(Action<T> callback) where T : Event {
+        
         Type eventType = typeof(T);
 
         // Check if the Event type is already recorded in the SUBSCRIBERS dictionary and creates
@@ -44,6 +46,7 @@ public partial class EventBus : Node {
     // Called by something that no longer wants to know when an Event happens,
     // where the callback is a function in List<Delegate> corresponding to the Event type.
     public static void Unsubscribe<T>(Action<T> callback) where T : Event {
+        
         Type eventType = typeof(T);
 
         // Check if the Event type has any subscribers in the SUBSCRIBERS dictionary.
@@ -63,6 +66,7 @@ public partial class EventBus : Node {
     // Called by something that wants to trigger the callback functions associated with the Event
     // type passed as the parameter.
     public static void Publish<T>(T evt) where T : Event {
+        
         Type eventType = typeof(T);
 
         // Check if the Event type has any subscribers in the SUBSCRIBERS dictionary.

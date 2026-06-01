@@ -6,6 +6,7 @@
         <RootNamespace>DiceDungeon</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
+        <Folder Include="scenes\UI\" />
         <Folder Include="scripts\Utilities\ErrorTypes\"/>
     </ItemGroup>
 </Project>

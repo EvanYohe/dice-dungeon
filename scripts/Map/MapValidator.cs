@@ -10,8 +10,8 @@ public class MapValidator {
     private static readonly (int, int) TreasureCountRange = (2, 3);
 
     public bool IsValid(Graph graph) {
+        
         ArgumentNullException.ThrowIfNull(graph);
-
         if (!hasExactlyOneNodeOfType(graph, NodeType.Entrance)) {
             return false;
         }
@@ -76,6 +76,7 @@ public class MapValidator {
     }
 
     public bool IsSubgraphValid(Graph graph) {
+        
         int[] nodeConnectionCounts = Enumerable.ToArray(Enumerable.Select(graph.Nodes, graph.ConnectionCount));
         foreach (int t in nodeConnectionCounts) {
             if (t > 3) {
@@ -100,10 +101,13 @@ public class MapValidator {
     }
 
     private static HashSet<Guid> TraverseFrom(Graph graph, Node start) {
+        
         HashSet<Guid> visited = new HashSet<Guid>();
         Queue<Node> queue = new Queue<Node>();
+        
         visited.Add(start.Id);
         queue.Enqueue(start);
+        
         while (queue.Count > 0) {
             Node current = queue.Dequeue();
             foreach (Node connection in graph.GetConnections(current)) {
@@ -118,14 +122,17 @@ public class MapValidator {
 
     // This pathfinding algorithm should check for disconnected subgraphs or nodes
     private static bool CheckEntryExitPathfinding(Graph graph) {
+        
         Node? entrance = graph.GetNodeByType(NodeType.Entrance);
         Node? exit = graph.GetNodeByType(NodeType.Exit);
         HashSet<Guid> visited = TraverseFrom(graph, entrance);
+        
         return visited.Contains(exit.Id) && visited.Count == graph.Nodes.Count;
     }
 
     // An EXIT node should only have one connection to the BOSS node
     private static bool CheckExitConnections(Graph graph) {
+        
         Node? exit = graph.GetNodeByType(NodeType.Exit);
         Node? boss = graph.GetNodeByType(NodeType.Boss);
 
@@ -136,6 +143,7 @@ public class MapValidator {
     // One connection to the exit
     // One connection to an EMPTY node
     private static bool CheckBossConnections(Graph graph) {
+        
         Node? boss = graph.GetNodeByType(NodeType.Boss);
 
         if (graph.ConnectionCount(boss) != 2 || !graph.HasConnectionOfType(boss, NodeType.Exit) || !graph.HasConnectionOfType(boss, NodeType.EmptyBeforeBoss)) {
@@ -147,6 +155,7 @@ public class MapValidator {
 
     // The ratio of ENCOUNTER nodes to total nodes should be between 30% and 70%
     private static bool CheckEncounterRatio(Graph graph) {
+        
         float encounter = graph.NodeTypeCount(NodeType.Encounter);
         float total = graph.Nodes.Count;
 
@@ -160,18 +169,22 @@ public class MapValidator {
     }
 
     private static bool NodesUnderMaxEdges(Graph graph) {
+        
         return Enumerable.All(graph.Nodes, node => graph.ConnectionCount(node) <= 4);
     }
 
     private static bool hasExactlyOneNodeOfType(Graph graph, NodeType nodeType) {
+        
         return graph.NodeTypeCount(nodeType) == 1;
     }
 
     private static bool HasNodeCountInRange(Graph graph, NodeType nodeType, (int minCount, int maxCount) range) {
+        
         return graph.NodeTypeCount(nodeType) >= range.minCount && graph.NodeTypeCount(nodeType) <= range.maxCount;
     }
 
     private static bool HasNodeCountAtMost(Graph graph, NodeType nodeType) {
+        
         return graph.NodeTypeCount(nodeType) <= 1;
     }
 }

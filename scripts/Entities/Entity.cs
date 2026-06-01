@@ -6,6 +6,7 @@ using DiceDungeon.scripts.Entities.Abilities;
 namespace DiceDungeon.scripts.Entities;
 
 public interface I_Entity {
+    
     public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
@@ -31,8 +32,7 @@ public interface I_Entity {
 
     public Dictionary<DamageType, int> DamageBonusesByDamageType { get; set; }
 
-    public Dictionary<DamageType, int>
-        DamageReductionsByDamageType { get; set; }
+    public Dictionary<DamageType, int> DamageReductionsByDamageType { get; set; }
 
     public Dictionary<DiceType, int> DamageBonusesByDiceType { get; set; }
 

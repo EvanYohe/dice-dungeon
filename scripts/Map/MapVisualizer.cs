@@ -8,7 +8,9 @@ using Enumerable = System.Linq.Enumerable;
 namespace DiceDungeon.scripts.Map;
 
 public static class MapVisualizer {
+    
     public static void WriteDot(Graph graph, string filePath = "graph.dot") {
+        
         ArgumentNullException.ThrowIfNull(graph);
         ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
 
@@ -37,17 +39,18 @@ public static class MapVisualizer {
 
         HashSet<string> writtenEdges = new HashSet<string>();
 
-        foreach (Node alpha in nodes)
-        foreach (Node beta in graph.GetConnections(alpha)) {
-            string alphaId = nodeIds[alpha];
-            string betaId = nodeIds[beta];
+        foreach (Node alpha in nodes) {
+            foreach (Node beta in graph.GetConnections(alpha)) {
+                string alphaId = nodeIds[alpha];
+                string betaId = nodeIds[beta];
 
-            string edgeKey = string.CompareOrdinal(alphaId, betaId) < 0
-                ? $"{alphaId}--{betaId}"
-                : $"{betaId}--{alphaId}";
+                string edgeKey = string.CompareOrdinal(alphaId, betaId) < 0
+                    ? $"{alphaId}--{betaId}"
+                    : $"{betaId}--{alphaId}";
 
-            if (writtenEdges.Add(edgeKey)) {
-                builder.AppendLine($"  {alphaId} -- {betaId};");
+                if (writtenEdges.Add(edgeKey)) {
+                    builder.AppendLine($"  {alphaId} -- {betaId};");
+                }
             }
         }
 
@@ -57,6 +60,7 @@ public static class MapVisualizer {
     }
 
     public static void WriteSvg(Graph graph, string dotFilePath = "graph.dot", string svgFilePath = "graph.svg") {
+        
         WriteDot(graph, dotFilePath);
 
         ProcessStartInfo startInfo = new ProcessStartInfo {
@@ -67,7 +71,6 @@ public static class MapVisualizer {
         };
 
         using Process process = Process.Start(startInfo) ?? throw new InvalidOperationException("Failed to start Graphviz dot process.");
-
         process.WaitForExit();
 
         if (process.ExitCode != 0) {
@@ -76,6 +79,7 @@ public static class MapVisualizer {
     }
 
     private static string GetNodeColor(NodeType nodeType) {
+        
         return nodeType switch {
             NodeType.Entrance => "palegreen",
             NodeType.Exit => "lightcoral",
@@ -93,6 +97,7 @@ public static class MapVisualizer {
     }
 
     private static string EscapeLabel(string label) {
+        
         return label
             .Replace("\\", "\\\\")
             .Replace("\"", "\\\"");

@@ -5,17 +5,16 @@ using System.Linq;
 namespace DiceDungeon.scripts.Map;
 
 public abstract class MapGenerator {
+    
     private const int MaxConnectionsPerNode = 4;
     private const int MaxGenerationAttempts = 10;
-
     private static readonly MapValidator Validator = new MapValidator();
     private static readonly Random Random = new Random();
 
-    private static readonly (int dx, int dy)[] CardinalDirections = [
-        (1, 0), (-1, 0), (0, 1), (0, -1)
-    ];
+    private static readonly (int dx, int dy)[] CardinalDirections = [(1, 0), (-1, 0), (0, 1), (0, -1)];
 
     public static Graph Generate(Graph seed) {
+        
         // null check on seed graph
         ArgumentNullException.ThrowIfNull(seed);
 
@@ -76,8 +75,7 @@ public abstract class MapGenerator {
 
             // post-processing
             PostProcess(outputGraph);
-
-
+            
             // if the target graph is now valid, break the loop early
             if (Validator.IsValid(outputGraph)) {
                 MapVisualizer.WriteSvg(outputGraph, "success.dot", "success.svg");
@@ -90,6 +88,7 @@ public abstract class MapGenerator {
 
     // First subgraph creation method
     private static Graph CreateSubgraph() {
+        
         NodeType[] nodeTypePool = [
             NodeType.Empty,
             NodeType.Empty,
@@ -116,8 +115,7 @@ public abstract class MapGenerator {
             }
 
             // index of array has to match index of nodes in subgraph
-            int[] nodeConnectionCounts =
-                subgraph.Nodes.Select(subgraph.ConnectionCount).ToArray();
+            int[] nodeConnectionCounts = subgraph.Nodes.Select(subgraph.ConnectionCount).ToArray();
             while (nodeConnectionCounts.Any(count => count == 0)) {
                 int alphaIndex = Random.Next(nodeCount);
                 int betaIndex = Random.Next(nodeCount);
@@ -145,6 +143,7 @@ public abstract class MapGenerator {
 
     // Second subgraph creation method
     private static Graph CreateSubSubgraph() {
+        
         NodeType[] nodeTypePool = [
             NodeType.Empty,
             NodeType.Empty,
@@ -173,8 +172,7 @@ public abstract class MapGenerator {
             // Shuffle the node list and chain them together into a spanning tree.
             // This guarantees every node has at least one connection and the
             // subgraph is fully connected before any extra edges are added.
-            List<Node> shuffled =
-                nodeList.OrderBy(_ => Random.Next()).ToList();
+            List<Node> shuffled = nodeList.OrderBy(_ => Random.Next()).ToList();
             for (int i = 0; i < shuffled.Count - 1; i++) {
                 subgraph.AddConnection(shuffled[i], shuffled[i + 1]);
             }
@@ -212,6 +210,7 @@ public abstract class MapGenerator {
 
     // Third subgraph creation method
     private static Graph CreateSubSubSubgraph() {
+        
         NodeType[] nodeTypePool = [
             NodeType.Empty,
             NodeType.Empty,
@@ -286,10 +285,7 @@ public abstract class MapGenerator {
     }
 
     // function to link subgraphs from createSubgraph and createSubSubgraph
-    private static bool AttachSubgraph(
-        Graph source,
-        Graph target, List<Guid> sourceCandidates,
-        List<Guid> targetCandidates) {
+    private static bool AttachSubgraph(Graph source, Graph target, List<Guid> sourceCandidates, List<Guid> targetCandidates) {
 
         bool connectionSuccess = false;
         int attempts = 0;
@@ -305,10 +301,7 @@ public abstract class MapGenerator {
                 MaxConnectionsPerNode
                 && source.ConnectionCount(sourceCandidates[subgraphCandidateGuidIndex]) < MaxConnectionsPerNode) {
                 // randomly select a candidate from each list and connect them
-                target.AddConnection(
-                    targetCandidates[outputGraphCandidateGuidIndex],
-                    sourceCandidates[subgraphCandidateGuidIndex]
-                );
+                target.AddConnection(targetCandidates[outputGraphCandidateGuidIndex], sourceCandidates[subgraphCandidateGuidIndex]);
                 connectionSuccess = true;
             }
         }
@@ -317,9 +310,7 @@ public abstract class MapGenerator {
     }
 
     // function to link subgraph from createSubSubSubgraph
-    private static bool AttachSubgraphToGrid(
-        Graph outputGraph,
-        Graph subgraph, HashSet<(int x, int y)> occupiedCells) {
+    private static bool AttachSubgraphToGrid(Graph outputGraph, Graph subgraph, HashSet<(int x, int y)> occupiedCells) {
 
         // Find all candidate attachment points on the output graph boundary:
         // cells adjacent to an existing node that are currently unoccupied
@@ -381,13 +372,12 @@ public abstract class MapGenerator {
     }
 
     private static void PostProcess(Graph graph) {
+        
         CleanupLimitedNodeTypes(graph);
 
         float encounterRatio = (float)graph.NodeTypeCount(NodeType.Encounter) / graph.Nodes.Count;
         while (encounterRatio < .5f) {
-            List<Node> emptyNodes =
-                graph.Nodes.Where(n => n.Type == NodeType.Empty).ToList();
-
+            List<Node> emptyNodes = graph.Nodes.Where(n => n.Type == NodeType.Empty).ToList();
             if (emptyNodes.Count == 0) {
                 break;
             }
@@ -398,9 +388,7 @@ public abstract class MapGenerator {
 
         float emptyRatio = (float)graph.NodeTypeCount(NodeType.Empty) / graph.Nodes.Count;
         while (emptyRatio < .25f) {
-            List<Node> encounterNodes =
-                graph.Nodes.Where(n => n.Type == NodeType.Encounter).ToList();
-
+            List<Node> encounterNodes = graph.Nodes.Where(n => n.Type == NodeType.Encounter).ToList();
             if (encounterNodes.Count == 0) {
                 break;
             }
@@ -411,6 +399,7 @@ public abstract class MapGenerator {
     }
 
     private static void CleanupLimitedNodeTypes(Graph graph) {
+        
         ConvertExcessNodesOfType(graph, NodeType.Challenge, 1);
         ConvertExcessNodesOfType(graph, NodeType.Secret, 1);
         ConvertExcessNodesOfType(graph, NodeType.Event, 1);
@@ -419,6 +408,7 @@ public abstract class MapGenerator {
     }
 
     private static void ConvertExcessNodesOfType(Graph graph, NodeType type, int maxCount) {
+        
         while (graph.NodeTypeCount(type) > maxCount) {
             Node? nodeToConvert = graph.Nodes.Where(node => node.Type == type).OrderBy(graph.ConnectionCount).FirstOrDefault();
             if (nodeToConvert is null) {
