@@ -10,47 +10,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="246d2f75-959e-48bb-b83d-ac1826a0b360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/Utilities/ConfigLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/Utilities/ErrorHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/Utilities/SaveLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice Dungeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice Dungeon/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dice Dungeon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dice Dungeon.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/Entities/BadTestArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/Entities/BadTestArea.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/Entities/EnemyEntity/EnemyEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/Entities/EnemyEntity/EnemyEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/Entities/PlayerEntity/PlayerEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/Entities/PlayerEntity/PlayerEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/main_game.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/main_game.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Combat/DamageType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Combat/DamageType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Combat/DiceType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Combat/DiceType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Combat/Turn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Combat/Turn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Combat/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Combat/TurnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Abilities/Ability.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Abilities/Ability.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Abilities/FighterAbilityActionSurge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Abilities/FighterAbilityActionSurge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Abilities/FighterAbilityBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Abilities/FighterAbilityBlock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/CreatureType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/CreatureType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Inventory/DiceInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Inventory/DiceInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Inventory/EquipmentInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Inventory/EquipmentInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Inventory/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Inventory/Inventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Inventory/PlayerInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Inventory/PlayerInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/Npc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Npc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Entities/ResourceType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/ResourceType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Event/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Event/Event.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Event/EventBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Event/EventBus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Event/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Event/Events.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Items/Consumable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Items/Consumable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Items/Dice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Items/Dice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Items/Equipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Items/Equipment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Items/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Items/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Map/Graph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/Graph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Map/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/MapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Map/MapValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/MapValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Map/MapVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/MapVisualizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Map/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/Map/NodeType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/NodeType.cs" afterDir="false" />
-    </list>
+    <list default="true" id="246d2f75-959e-48bb-b83d-ac1826a0b360" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -256,7 +216,7 @@
       <workItem from="1780243617605" duration="10353000" />
       <workItem from="1780264691365" duration="8995000" />
       <workItem from="1780274214912" duration="3815000" />
-      <workItem from="1780278047647" duration="456000" />
+      <workItem from="1780278047647" duration="714000" />
     </task>
     <servers />
   </component>
