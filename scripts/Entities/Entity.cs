@@ -6,41 +6,44 @@ using DiceDungeon.scripts.Entities.Abilities;
 namespace DiceDungeon.scripts.Entities;
 
 public interface I_Entity {
-    
-    public Guid id { get; set; }
-    public string name { get; set; }
-    public string description { get; set; }
-    public int initiative { get; set; }
-    public int healthCurrent { get; set; }
-    public int healthMaximum { get; set; }
-    public ResourceType resourceType { get; set; }
-    public int resourceCurrent { get; set; }
-    public int resourceMaximum { get; set; }
-    public int rerollsCurrent { get; set; }
-    public int rerollsMaximum { get; set; }
-    public int currency { get; set; }
-    
-    public CreatureType creatureType { get; set; }
-    public Character character { get; set; }
-    
-    public List<Ability> abilities { get; set; }
-    
-    public Dictionary<DamageType, bool> immunities { get; set; }
-    public Dictionary<DamageType, int> resistances { get; set; }
-    public Dictionary<DamageType, int> vulnerabilities { get; set; }
-    
-    public Dictionary<DamageType, int> damageBonusesByDamageType { get; set; }
-    public Dictionary<DamageType, int> damageReductionsByDamageType { get; set; }
-    public Dictionary<DiceType, int> damageBonusesByDiceType{ get; set; }
-    public Dictionary<DiceType, int> damageReductionsByDiceType { get; set; }
-    
-    public bool isAlive { get; set; }
-    public bool isHostileToPlayer { get; set; }
-    public bool isHostileToEnemies { get; set; }
-    public bool isVendor { get; set; }
-    public bool isVisible { get; set; }
-    public bool isInvincible { get; set; }
-    public bool isPlayer { get; set; }
-    public bool isAffectedByConditions { get; set; }
-    
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public int Initiative { get; set; }
+    public int HealthCurrent { get; set; }
+    public int HealthMaximum { get; set; }
+    public ResourceType ResourceType { get; set; }
+    public int ResourceCurrent { get; set; }
+    public int ResourceMaximum { get; set; }
+    public int RerollsCurrent { get; set; }
+    public int RerollsMaximum { get; set; }
+    public int Currency { get; set; }
+
+    public CreatureType CreatureType { get; set; }
+    public Character Character { get; set; }
+
+    public List<Ability> Abilities { get; set; }
+
+    public Dictionary<DamageType, bool> Immunities { get; set; }
+    public Dictionary<DamageType, int> Resistances { get; set; }
+
+    public Dictionary<DamageType, int> Vulnerabilities { get; set; }
+
+    public Dictionary<DamageType, int> DamageBonusesByDamageType { get; set; }
+
+    public Dictionary<DamageType, int>
+        DamageReductionsByDamageType { get; set; }
+
+    public Dictionary<DiceType, int> DamageBonusesByDiceType { get; set; }
+
+    public Dictionary<DiceType, int> DamageReductionsByDiceType { get; set; }
+
+    public bool IsAlive { get; set; }
+    public bool IsHostileToPlayer { get; set; }
+    public bool IsHostileToEnemies { get; set; }
+    public bool IsVendor { get; set; }
+    public bool IsVisible { get; set; }
+    public bool IsInvincible { get; set; }
+    public bool IsPlayer { get; set; }
+    public bool IsAffectedByConditions { get; set; }
 }

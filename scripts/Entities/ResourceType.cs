@@ -1,10 +1,9 @@
 ﻿namespace DiceDungeon.scripts.Entities;
 
 public enum ResourceType {
-    
-    MANA,
-    STAMINA,
-    ENERGY,
-    FOCUS,
-    RAGE
+    Mana,
+    Stamina,
+    Energy,
+    Focus,
+    Rage
 }

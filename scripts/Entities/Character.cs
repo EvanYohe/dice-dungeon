@@ -3,10 +3,8 @@
 namespace DiceDungeon.scripts.Entities;
 
 public partial class Character : Resource {
-
-    public string id;
-    public string name;
-    public string description;
-    public AnimatedSprite2D sprite;
-    
+    private string _description;
+    private string _id;
+    private string _name;
+    private AnimatedSprite2D _sprite;
 }

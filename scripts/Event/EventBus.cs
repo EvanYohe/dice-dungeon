@@ -18,24 +18,22 @@ namespace DiceDungeon.scripts.Event;
 // the entities that are subscribed to the Event type.
 
 public partial class EventBus : Node {
-	
     // Dictionary that stores Events and their corresponding subscribers where the subscribers
     // are represented by the functions that will be called when the Event is triggered.
-    private static readonly Dictionary<Type, List<Delegate>> SUBSCRIBERS = new Dictionary<Type, List<Delegate>>();
+    private static readonly Dictionary<Type, List<Delegate>> Subscribers = new Dictionary<Type, List<Delegate>>();
 
     // Called by something that wants to know when an Event happens, where the callback is the
     // function that the subscriber will process on the Event being triggered (published).
-    public static void subscribe<T>(Action<T> callback) where T : Event {
-        
+    public static void Subscribe<T>(Action<T> callback) where T : Event {
         Type eventType = typeof(T);
-        
+
         // Check if the Event type is already recorded in the SUBSCRIBERS dictionary and creates
         // a new List of subscribers (callbacks) for that type of Event if it doesn't exist.
-        if (!SUBSCRIBERS.TryGetValue(eventType, out List<Delegate> callbacks)) {
+        if (!Subscribers.TryGetValue(eventType, out List<Delegate> callbacks)) {
             callbacks = new List<Delegate>();
-            SUBSCRIBERS[eventType] = callbacks;
+            Subscribers[eventType] = callbacks;
         }
-        
+
         // Check if the callback function is already in the list of subscribers for this type
         // of Event and add it to the list if not already an element of the list.
         if (!callbacks.Contains(callback)) {
@@ -45,35 +43,33 @@ public partial class EventBus : Node {
 
     // Called by something that no longer wants to know when an Event happens,
     // where the callback is a function in List<Delegate> corresponding to the Event type.
-    public static void unsubscribe<T>(Action<T> callback) where T : Event {
-        
+    public static void Unsubscribe<T>(Action<T> callback) where T : Event {
         Type eventType = typeof(T);
-        
+
         // Check if the Event type has any subscribers in the SUBSCRIBERS dictionary.
-        if (!SUBSCRIBERS.TryGetValue(eventType, out var callbacks)) {
+        if (!Subscribers.TryGetValue(eventType, out List<Delegate> callbacks)) {
             return;
         }
-        
+
         // Remove the callback function from the list of subscribers for this type of Event.
         callbacks.Remove(callback);
-        
+
         // If no subscribers exist for this Event type, remove the entry from the dictionary.
         if (callbacks.Count == 0) {
-            SUBSCRIBERS.Remove(eventType);
+            Subscribers.Remove(eventType);
         }
     }
 
     // Called by something that wants to trigger the callback functions associated with the Event
     // type passed as the parameter.
-    public static void publish<T>(T evt) where T : Event {
-        
+    public static void Publish<T>(T evt) where T : Event {
         Type eventType = typeof(T);
-        
+
         // Check if the Event type has any subscribers in the SUBSCRIBERS dictionary.
-        if (!SUBSCRIBERS.TryGetValue(eventType, out var callbacks)) {
+        if (!Subscribers.TryGetValue(eventType, out List<Delegate> callbacks)) {
             return;
         }
-        
+
         // Iterates over a copy of the subscribers to the Event type and trigger the callback
         // function associated with each subscriber.
         foreach (Delegate callback in callbacks.ToArray()) {

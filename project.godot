@@ -12,12 +12,17 @@ config_version=5
 
 config/name="Dice Dungeon"
 run/main_scene="uid://dyy438letvn87"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Dice Dungeon"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://assets/textures/icon.svg"
 
 [autoload]
 
 EventBus="*uid://bki77herxqipn"
+ErrorHandler="*uid://cx4esoqi52mb1"
+ConfigLoader="*uid://ver7xngnpg7p"
+SaveLoader="*uid://srey35xsfj7w"
 
 [display]
 
@@ -30,6 +35,12 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Dice Dungeon"
+
+[global]
+
+Save_Directory="user://save"
+Config_Directory="user://config"
+Error_Log_Directory="user://error"
 
 [input]
 

@@ -5,4 +5,7 @@
         <EnableDynamicLoading>true</EnableDynamicLoading>
         <RootNamespace>DiceDungeon</RootNamespace>
     </PropertyGroup>
+    <ItemGroup>
+        <Folder Include="scripts\Utilities\ErrorTypes\"/>
+    </ItemGroup>
 </Project>

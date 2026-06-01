@@ -32,9 +32,10 @@ offset_bottom = 40.0
 
 [node name="World" type="Node2D" parent="." unique_id=1193965740]
 
-[node name="PlayerEntity" parent="World" unique_id=389815317 instance=ExtResource("1_s3esy")]
+[node name="PlayerEntity" parent="World" unique_id=389815317 node_paths=PackedStringArray("_badTestArea") instance=ExtResource("1_s3esy")]
 position = Vector2(20, 90)
 speed = 10.0
+_badTestArea = NodePath("../Area2D")
 
 [node name="EnemyEntity" parent="World" unique_id=679935131 instance=ExtResource("2_72e8q")]
 position = Vector2(300, 90)

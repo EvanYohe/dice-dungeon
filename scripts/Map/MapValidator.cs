@@ -1,113 +1,113 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using Enumerable = System.Linq.Enumerable;
 
 namespace DiceDungeon.scripts.Map;
 
 public class MapValidator {
-    private static readonly (int, int) TREASURE_COUNT_RANGE = (2, 3);
-    private const int MIN_NODE_COUNT = 22;
-    private const int MAX_NODE_COUNT = 44;
+    private const int MinNodeCount = 22;
+    private const int MaxNodeCount = 44;
+    private static readonly (int, int) TreasureCountRange = (2, 3);
 
-    public bool isValid(Graph graph) {
+    public bool IsValid(Graph graph) {
         ArgumentNullException.ThrowIfNull(graph);
 
-        if (!hasExactlyOneNodeOfType(graph, NodeType.ENTRANCE)) {
+        if (!hasExactlyOneNodeOfType(graph, NodeType.Entrance)) {
             return false;
         }
 
-        if (!hasExactlyOneNodeOfType(graph, NodeType.EXIT)) {
+        if (!hasExactlyOneNodeOfType(graph, NodeType.Exit)) {
             return false;
         }
 
-        if (!hasExactlyOneNodeOfType(graph, NodeType.SHOP)) {
+        if (!hasExactlyOneNodeOfType(graph, NodeType.Shop)) {
             return false;
         }
 
-        if (!hasExactlyOneNodeOfType(graph, NodeType.BOSS)) {
+        if (!hasExactlyOneNodeOfType(graph, NodeType.Boss)) {
             return false;
         }
 
-        if (graph.nodes.Count < MIN_NODE_COUNT || graph.nodes.Count > MAX_NODE_COUNT) {
+        if (graph.Nodes.Count is < MinNodeCount or > MaxNodeCount) {
             return false;
         }
 
-        if (!checkEntryExitPathfinding(graph)) {
+        if (!CheckEntryExitPathfinding(graph)) {
             return false;
         }
 
-        if (!checkEncounterRatio(graph)) {
+        if (!CheckEncounterRatio(graph)) {
             return false;
         }
 
-        if (!nodesUnderMaxEdges(graph)) {
+        if (!NodesUnderMaxEdges(graph)) {
             return false;
         }
 
-        if (!checkExitConnections(graph)) {
+        if (!CheckExitConnections(graph)) {
             return false;
         }
 
-        if (!checkBossConnections(graph)) {
+        if (!CheckBossConnections(graph)) {
             return false;
         }
 
-        if (!hasNodeCountInRange(graph, NodeType.TREASURE, TREASURE_COUNT_RANGE)) {
+        if (!HasNodeCountInRange(graph, NodeType.Treasure, TreasureCountRange)) {
             return false;
         }
 
-        if (!hasNodeCountAtMost(graph, NodeType.EVENT)) {
+        if (!HasNodeCountAtMost(graph, NodeType.Event)) {
             return false;
         }
 
-        if (!hasNodeCountAtMost(graph, NodeType.CHALLENGE)) {
+        if (!HasNodeCountAtMost(graph, NodeType.Challenge)) {
             return false;
         }
 
-        if (!hasNodeCountAtMost(graph, NodeType.SECRET)) {
+        if (!HasNodeCountAtMost(graph, NodeType.Secret)) {
             return false;
         }
 
-        if (!hasNodeCountAtMost(graph, NodeType.MINIBOSS)) {
+        if (!HasNodeCountAtMost(graph, NodeType.Miniboss)) {
             return false;
         }
 
         return true;
     }
 
-    public bool isSubgraphValid(Graph graph) {
-        int[] nodeConnectionCounts = graph.nodes.Select(graph.connectionCount).ToArray();
+    public bool IsSubgraphValid(Graph graph) {
+        int[] nodeConnectionCounts = Enumerable.ToArray(Enumerable.Select(graph.Nodes, graph.ConnectionCount));
         foreach (int t in nodeConnectionCounts) {
             if (t > 3) {
                 return false;
             }
         }
 
-        if (!nodeConnectionCounts.Any(count => count < 2)) {
+        if (!Enumerable.Any(nodeConnectionCounts, count => count < 2)) {
             return false;
         }
 
-        if (nodeConnectionCounts.Any(count => count == 0)) {
+        if (Enumerable.Any(nodeConnectionCounts, count => count == 0)) {
             return false;
         }
 
-        HashSet<Guid> visited = traverseFrom(graph, graph.nodes.First());
-        if (visited.Count != graph.nodes.Count) {
+        HashSet<Guid> visited = TraverseFrom(graph, Enumerable.First(graph.Nodes));
+        if (visited.Count != graph.Nodes.Count) {
             return false;
         }
 
         return true;
     }
 
-    private static HashSet<Guid> traverseFrom(Graph graph, Node start) {
+    private static HashSet<Guid> TraverseFrom(Graph graph, Node start) {
         HashSet<Guid> visited = new HashSet<Guid>();
         Queue<Node> queue = new Queue<Node>();
-        visited.Add(start.id);
+        visited.Add(start.Id);
         queue.Enqueue(start);
         while (queue.Count > 0) {
             Node current = queue.Dequeue();
-            foreach (Node connection in graph.getConnections(current)) {
-                if (visited.Add(connection.id)) {
+            foreach (Node connection in graph.GetConnections(current)) {
+                if (visited.Add(connection.Id)) {
                     queue.Enqueue(connection);
                 }
             }
@@ -117,33 +117,28 @@ public class MapValidator {
     }
 
     // This pathfinding algorithm should check for disconnected subgraphs or nodes
-    private static bool checkEntryExitPathfinding(Graph graph) {
-        Node? entrance = graph.getNodeByType(NodeType.ENTRANCE);
-        Node? exit = graph.getNodeByType(NodeType.EXIT);
-        HashSet<Guid> visited = traverseFrom(graph, entrance);
-        return visited.Contains(exit.id)
-               && visited.Count == graph.nodes.Count;
+    private static bool CheckEntryExitPathfinding(Graph graph) {
+        Node? entrance = graph.GetNodeByType(NodeType.Entrance);
+        Node? exit = graph.GetNodeByType(NodeType.Exit);
+        HashSet<Guid> visited = TraverseFrom(graph, entrance);
+        return visited.Contains(exit.Id) && visited.Count == graph.Nodes.Count;
     }
 
     // An EXIT node should only have one connection to the BOSS node
-    private static bool checkExitConnections(Graph graph) {
-        Node? exit = graph.getNodeByType(NodeType.EXIT);
-        Node? boss = graph.getNodeByType(NodeType.BOSS);
+    private static bool CheckExitConnections(Graph graph) {
+        Node? exit = graph.GetNodeByType(NodeType.Exit);
+        Node? boss = graph.GetNodeByType(NodeType.Boss);
 
-        return graph.hasConnection(exit, boss)
-               && graph.connectionCount(exit) == 1;
+        return graph.HasConnection(exit, boss) && graph.ConnectionCount(exit) == 1;
     }
 
     // A BOSS node should always have two connections,
     // One connection to the exit
     // One connection to an EMPTY node
-    private static bool checkBossConnections(Graph graph) {
-        Node? boss = graph.getNodeByType(NodeType.BOSS);
+    private static bool CheckBossConnections(Graph graph) {
+        Node? boss = graph.GetNodeByType(NodeType.Boss);
 
-        if (graph.connectionCount(boss) != 2
-            || !graph.hasConnectionOfType(boss, NodeType.EXIT)
-            || !graph.hasConnectionOfType(boss, NodeType.EMPTY_BEFORE_BOSS)
-           ) {
+        if (graph.ConnectionCount(boss) != 2 || !graph.HasConnectionOfType(boss, NodeType.Exit) || !graph.HasConnectionOfType(boss, NodeType.EmptyBeforeBoss)) {
             return false;
         }
 
@@ -151,9 +146,9 @@ public class MapValidator {
     }
 
     // The ratio of ENCOUNTER nodes to total nodes should be between 30% and 70%
-    private static bool checkEncounterRatio(Graph graph) {
-        float encounter = graph.nodeTypeCount(NodeType.ENCOUNTER);
-        float total = graph.nodes.Count;
+    private static bool CheckEncounterRatio(Graph graph) {
+        float encounter = graph.NodeTypeCount(NodeType.Encounter);
+        float total = graph.Nodes.Count;
 
         if (total <= 0) {
             return false;
@@ -164,20 +159,19 @@ public class MapValidator {
         return ratio is >= .3f and <= .7f;
     }
 
-    private static bool nodesUnderMaxEdges(Graph graph) {
-        return graph.nodes.All(node => graph.connectionCount(node) <= 4);
+    private static bool NodesUnderMaxEdges(Graph graph) {
+        return Enumerable.All(graph.Nodes, node => graph.ConnectionCount(node) <= 4);
     }
 
     private static bool hasExactlyOneNodeOfType(Graph graph, NodeType nodeType) {
-        return graph.nodeTypeCount(nodeType) == 1;
+        return graph.NodeTypeCount(nodeType) == 1;
     }
 
-    private static bool hasNodeCountInRange(Graph graph, NodeType nodeType, (int minCount, int maxCount) range) {
-        return graph.nodeTypeCount(nodeType) >= range.minCount
-               && graph.nodeTypeCount(nodeType) <= range.maxCount;
+    private static bool HasNodeCountInRange(Graph graph, NodeType nodeType, (int minCount, int maxCount) range) {
+        return graph.NodeTypeCount(nodeType) >= range.minCount && graph.NodeTypeCount(nodeType) <= range.maxCount;
     }
 
-    private static bool hasNodeCountAtMost(Graph graph, NodeType nodeType) {
-        return graph.nodeTypeCount(nodeType) <= 1;
+    private static bool HasNodeCountAtMost(Graph graph, NodeType nodeType) {
+        return graph.NodeTypeCount(nodeType) <= 1;
     }
 }

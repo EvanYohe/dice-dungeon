@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
+using Enumerable = System.Linq.Enumerable;
 
 namespace DiceDungeon.scripts.Map;
 
 public static class MapVisualizer {
-    public static void writeDot(Graph graph, string filePath = "graph.dot") {
+    public static void WriteDot(Graph graph, string filePath = "graph.dot") {
         ArgumentNullException.ThrowIfNull(graph);
         ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
 
-        List<Node> nodes = graph.nodes.ToList();
+        List<Node> nodes = Enumerable.ToList(graph.Nodes);
         Dictionary<Node, string> nodeIds = new Dictionary<Node, string>();
 
         for (int index = 0; index < nodes.Count; index++) {
@@ -29,8 +29,8 @@ public static class MapVisualizer {
 
         foreach (Node node in nodes) {
             string id = nodeIds[node];
-            string label = escapeLabel($"{node.type}");
-            string color = getNodeColor(node.type);
+            string label = EscapeLabel($"{node.Type}");
+            string color = GetNodeColor(node.Type);
 
             builder.AppendLine($"  {id} [label=\"{label}\", fillcolor=\"{color}\"];");
         }
@@ -38,7 +38,7 @@ public static class MapVisualizer {
         HashSet<string> writtenEdges = new HashSet<string>();
 
         foreach (Node alpha in nodes)
-        foreach (Node beta in graph.getConnections(alpha)) {
+        foreach (Node beta in graph.GetConnections(alpha)) {
             string alphaId = nodeIds[alpha];
             string betaId = nodeIds[beta];
 
@@ -56,8 +56,8 @@ public static class MapVisualizer {
         File.WriteAllText(filePath, builder.ToString());
     }
 
-    public static void writeSvg(Graph graph, string dotFilePath = "graph.dot", string svgFilePath = "graph.svg") {
-        writeDot(graph, dotFilePath);
+    public static void WriteSvg(Graph graph, string dotFilePath = "graph.dot", string svgFilePath = "graph.svg") {
+        WriteDot(graph, dotFilePath);
 
         ProcessStartInfo startInfo = new ProcessStartInfo {
             FileName = "dot",
@@ -66,8 +66,7 @@ public static class MapVisualizer {
             CreateNoWindow = true
         };
 
-        using Process process = Process.Start(startInfo)
-                                ?? throw new InvalidOperationException("Failed to start Graphviz dot process.");
+        using Process process = Process.Start(startInfo) ?? throw new InvalidOperationException("Failed to start Graphviz dot process.");
 
         process.WaitForExit();
 
@@ -76,24 +75,24 @@ public static class MapVisualizer {
         }
     }
 
-    private static string getNodeColor(NodeType nodeType) {
+    private static string GetNodeColor(NodeType nodeType) {
         return nodeType switch {
-            NodeType.ENTRANCE => "palegreen",
-            NodeType.EXIT => "lightcoral",
-            NodeType.BOSS => "red",
-            NodeType.SHOP => "gold",
-            NodeType.TREASURE => "deepskyblue",
-            NodeType.MINIBOSS => "orange",
-            NodeType.SECRET => "plum",
-            NodeType.EVENT => "lightpink",
-            NodeType.CHALLENGE => "khaki",
-            NodeType.ENCOUNTER => "lightsalmon",
-            NodeType.EMPTY => "lightgray",
+            NodeType.Entrance => "palegreen",
+            NodeType.Exit => "lightcoral",
+            NodeType.Boss => "red",
+            NodeType.Shop => "gold",
+            NodeType.Treasure => "deepskyblue",
+            NodeType.Miniboss => "orange",
+            NodeType.Secret => "plum",
+            NodeType.Event => "lightpink",
+            NodeType.Challenge => "khaki",
+            NodeType.Encounter => "lightsalmon",
+            NodeType.Empty => "lightgray",
             _ => "white"
         };
     }
 
-    private static string escapeLabel(string label) {
+    private static string EscapeLabel(string label) {
         return label
             .Replace("\\", "\\\\")
             .Replace("\"", "\\\"");

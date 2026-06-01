@@ -11,12 +11,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="246d2f75-959e-48bb-b83d-ac1826a0b360" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scenes/Entities/BadTestArea.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/Event/Events.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice Dungeon/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice Dungeon/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/Utilities/ConfigLoader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/Utilities/ErrorHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/Utilities/SaveLoader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice Dungeon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice Dungeon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dice Dungeon.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Dice Dungeon.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/Entities/BadTestArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/Entities/BadTestArea.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/Entities/EnemyEntity/EnemyEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/Entities/EnemyEntity/EnemyEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/Entities/PlayerEntity/PlayerEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/Entities/PlayerEntity/PlayerEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/main_game.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/main_game.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Combat/DamageType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Combat/DamageType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Combat/DiceType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Combat/DiceType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Combat/Turn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Combat/Turn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Combat/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Combat/TurnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Abilities/Ability.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Abilities/Ability.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Abilities/FighterAbilityActionSurge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Abilities/FighterAbilityActionSurge.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Abilities/FighterAbilityBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Abilities/FighterAbilityBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/CreatureType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/CreatureType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Inventory/DiceInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Inventory/DiceInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Inventory/EquipmentInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Inventory/EquipmentInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Inventory/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Inventory/Inventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Inventory/PlayerInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Inventory/PlayerInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/Npc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/Npc.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Entities/ResourceType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Entities/ResourceType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Event/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Event/Event.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Event/EventBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Event/EventBus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Event/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Event/Events.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Items/Consumable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Items/Consumable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Items/Dice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Items/Dice.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Items/Equipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Items/Equipment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Items/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Items/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Map/Graph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/Graph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Map/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Map/MapValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/MapValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Map/MapVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/MapVisualizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Map/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Map/NodeType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Map/NodeType.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,17 +60,21 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="19" />
+    <option name="cachedIndexableFilesCount" value="20" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/SourceGeneratedDocuments/D19F1108E11EFBEE992C9D69/Godot.SourceGenerators/Godot.SourceGenerators.ScriptMethodsGenerator/DiceDungeon.scripts.Utilities.ErrorHandler_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/412c95486c304adc683ab6d260b116c75e4a9a4ef852adf1d7e9bbaf1ed75/StaticBody2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71246fd56f7999d0787c963da3362569a1129b41237bf6d1930bffe452552/Node.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/scenes/Entities/BadTestArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/scripts/Event/Events.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/scripts/Utilities/ConfigLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/scripts/Utilities/ErrorHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/scripts/Utilities/FileHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -47,63 +84,64 @@
     <commands />
     <urls />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000000000002" />
-      <entry key="S60" value="1.0000000163932263" />
-      <entry key="M2" value="1.0003670738676338" />
-      <entry key="M5" value="1.935475216464435" />
-      <entry key="M10" value="19.30104432423747" />
-      <entry key="M15" value="53.168921756327926" />
-      <entry key="M30" value="163.50790975803395" />
-      <entry key="H1" value="326.92698544806734" />
-      <entry key="H2" value="507.873754219436" />
-      <entry key="H4" value="657.9639229393503" />
-      <entry key="D1" value="836.3852846046696" />
-      <entry key="W1" value="873.5806134666932" />
+      <entry key="S2" value="1.0000000000000007" />
+      <entry key="S5" value="1.0000009297203756" />
+      <entry key="S10" value="1.0011568319370006" />
+      <entry key="S30" value="1.194196133869971" />
+      <entry key="S60" value="1.8513556624619887" />
+      <entry key="M2" value="2.9622559989057926" />
+      <entry key="M5" value="4.472345315113715" />
+      <entry key="M10" value="6.29079654410198" />
+      <entry key="M15" value="9.801699703309621" />
+      <entry key="M30" value="38.83646799335844" />
+      <entry key="H1" value="153.89659680402593" />
+      <entry key="H2" value="395.59659176246663" />
+      <entry key="H4" value="689.6230616354921" />
+      <entry key="D1" value="1150.748031227564" />
+      <entry key="W1" value="1262.2240288108437" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="1.777718702991183E-243" />
-      <entry key="S5" value="7.942280417907982E-98" />
-      <entry key="S10" value="2.818205176687459E-49" />
-      <entry key="S30" value="6.556387495123077E-17" />
-      <entry key="S60" value="8.153617708871052E-9" />
-      <entry key="M2" value="1.0303721986180526E-4" />
-      <entry key="M5" value="0.0476614827740107" />
-      <entry key="M10" value="0.5333262850672553" />
-      <entry key="M15" value="1.4337304593121787" />
-      <entry key="M30" value="4.7949034480090384" />
-      <entry key="H1" value="10.093837467314366" />
-      <entry key="H2" value="15.633745576825593" />
-      <entry key="H4" value="19.947654827845685" />
-      <entry key="D1" value="24.835848363301395" />
-      <entry key="W1" value="25.829313276115062" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="4.0617148377156225E-263" />
+      <entry key="S10" value="6.373158430257024E-132" />
+      <entry key="S30" value="1.8540425259047348E-44" />
+      <entry key="S60" value="1.3641294379332604E-22" />
+      <entry key="M2" value="1.2204792091189944E-11" />
+      <entry key="M5" value="6.222597460979597E-5" />
+      <entry key="M10" value="0.01613685220870092" />
+      <entry key="M15" value="0.12341589809825677" />
+      <entry key="M30" value="1.2365797725625078" />
+      <entry key="H1" value="5.292632906208035" />
+      <entry key="H2" value="13.196242881285773" />
+      <entry key="H4" value="22.350525890124295" />
+      <entry key="D1" value="36.15586235728184" />
+      <entry key="W1" value="39.42279301384619" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.056328153913176894" />
-      <entry key="MS500" value="0.5625292423444047" />
-      <entry key="S2" value="0.8660366589486319" />
-      <entry key="S5" value="0.9440924191502499" />
-      <entry key="S10" value="0.9716441834078203" />
-      <entry key="S30" value="0.9904572874367076" />
-      <entry key="S60" value="0.9952172304833607" />
-      <entry key="M2" value="0.9980740937789866" />
-      <entry key="M5" value="1.9816242186685384" />
-      <entry key="M10" value="19.829273372620133" />
-      <entry key="M15" value="54.592538623713565" />
-      <entry key="M30" value="168.28342759473705" />
-      <entry key="H1" value="336.99822964550145" />
-      <entry key="H2" value="523.4886211096335" />
-      <entry key="H4" value="677.8989660214364" />
-      <entry key="D1" value="861.2184034724197" />
-      <entry key="W1" value="899.4095181682446" />
+      <entry key="MS100" value="0.9526379980439373" />
+      <entry key="MS500" value="0.9903428719330246" />
+      <entry key="S2" value="0.9975769252644551" />
+      <entry key="S5" value="0.9990309933205048" />
+      <entry key="S10" value="1.0006710790997924" />
+      <entry key="S30" value="1.1939366488511467" />
+      <entry key="S60" value="1.850695097564608" />
+      <entry key="M2" value="2.9611053464030173" />
+      <entry key="M5" value="4.471036332175395" />
+      <entry key="M10" value="6.304055766164724" />
+      <entry key="M15" value="9.919960264616384" />
+      <entry key="M30" value="40.060756362708105" />
+      <entry key="H1" value="159.1698094273235" />
+      <entry key="H2" value="408.77158963761417" />
+      <entry key="H4" value="711.9564091072922" />
+      <entry key="D1" value="1186.8993670936445" />
+      <entry key="W1" value="1301.6461183845768" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -118,34 +156,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Executable.Editor.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Executable.Player.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Executable.Editor.executor": "Run",
+    ".NET Executable.Player.executor": "Run",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Debug GDScript (Running session)" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory">
       <option name="json" value="{&#10;  // Launch: &quot;Launch a new instance of the game&quot;,&#10;  // Attach: &quot;Attach to an already running game, which was started from the Godot Editor&quot;&#10;  &quot;request&quot; : &quot;Attach&quot;,&#10;  &quot;debugServer&quot; : 6006, // port should match the Debug Adapter port in the Godot Editor project settings.&#10;  &quot;scene&quot; : &quot;main&quot;, // main, current, res://path/to/file.tscn&#10;  &#10;  // &quot;playArgs&quot; : [ &quot;--editor&quot; ], // debugging a tool script&#10;  // &quot;playArgs&quot;: [&quot;--debug-collisions&quot;,&quot;--debug-navigation&quot;], // different options&#10;  &#10;  // one click deploy and debug via Godot Editor:&#10;  // &quot;platform&quot;: &quot;Android&quot;, // including Android, iOS, Web and W4 consoles&#10;  // &quot;device&quot;: &quot;0&quot;, // index of the device of a &quot;platform&quot; type&#10;}" />
@@ -215,12 +254,16 @@
       <workItem from="1779765340474" duration="5790000" />
       <workItem from="1780214227090" duration="3372000" />
       <workItem from="1780243617605" duration="10353000" />
+      <workItem from="1780264691365" duration="8995000" />
+      <workItem from="1780274214912" duration="3815000" />
+      <workItem from="1780278047647" duration="456000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

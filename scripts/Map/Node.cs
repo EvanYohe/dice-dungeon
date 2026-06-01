@@ -3,24 +3,23 @@
 namespace DiceDungeon.scripts.Map;
 
 public class Node {
-    
     public Node(NodeType type, int gridArea) {
-        this.type = type;
-        this.gridArea = gridArea;
-        this.x = 0;
-        this.y = 0;
+        Type = type;
+        GridArea = gridArea;
+        X = 0;
+        Y = 0;
     }
 
     public Node(NodeType type, int gridArea, int x, int y) {
-        this.type = type;
-        this.gridArea = gridArea;
-        this.x = x;
-        this.y = y;
+        Type = type;
+        GridArea = gridArea;
+        X = x;
+        Y = y;
     }
 
-    public Guid id { get; } = Guid.NewGuid();
-    public NodeType type { get; internal set; }
-    public int gridArea { get; set; }
-    public int x { get; set; }
-    public int y { get; set; }
+    public Guid Id { get; } = Guid.NewGuid();
+    public NodeType Type { get; internal set; }
+    public int GridArea { get; set; }
+    public int X { get; set; }
+    public int Y { get; set; }
 }
